@@ -1,0 +1,113 @@
+
+
+
+To check if Kafka is installed and running:
+	1.	Check Kafka Installation:
+	kafka-topics.sh --version
+
+	2.	Check Kafka Service:
+	ps -ef | grep kafka
+
+	3.	Check Kafka Ports:
+	netstat -tuln | grep 9092
+
+	4. Start Kafka
+	/Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-server-start.sh \
+      /Users/drupa/Downloads/kafka_2.12-3.8.0/config/server.properties
+
+    5. Verify Kafka is Running:
+    ps -ef | grep kafka
+
+    6.Create a Topic:
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-topics.sh --create \
+          --topic test-topic \
+          --bootstrap-server localhost:9092
+
+    7. List all topics:
+    kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+    8.Produce a Message:
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh \
+      --topic test-topic \
+      --bootstrap-server localhost:9092
+
+    Example:  Load json to kafka:
+    echo '{"id":1, "name":"Alice"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic test-topic --bootstrap-server localhost:9092
+    echo '{"id":2, "name":"Bob"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic test-topic --bootstrap-server localhost:9092
+    echo '{"id":3, "name":"Charlie"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic test-topic --bootstrap-server localhost:9092
+
+
+
+
+    Load /Users/drupa/Documents/Data/transactions.json into Kafka
+    cat /Users/drupa/Documents/Data/transactions.json | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh \
+      --topic input-topic \
+      --bootstrap-server localhost:9092
+
+    Append New Rows1:
+    echo '{"transaction_id": "TX12350", "user_id": "U1006", "amount": 120.00, "status": "FAILED", "timestamp": "2024-12-05T10:25:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12351", "user_id": "U1007", "amount": 520.75, "status": "SUCCESS", "timestamp": "2024-12-05T10:30:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+
+    echo '{"transaction_id": "TX12352", "user_id": "U1008", "amount": 200.00, "status": "SUCCESS", "timestamp": "2024-12-05T11:00:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12353", "user_id": "U1009", "amount": 350.50, "status": "SUCCESS", "timestamp": "2024-12-05T11:10:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+
+    pend New Rows2:
+    echo '{"transaction_id": "TX12354", "user_id": "U1010", "amount": 100.00, "status": "SUCCESS", "timestamp": "2024-12-05T11:15:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12355", "user_id": "U1011", "amount": 250.50, "status": "FAILED", "timestamp": "2024-12-05T11:20:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12356", "user_id": "U1012", "amount": 300.75, "status": "SUCCESS", "timestamp": "2024-12-05T11:25:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12357", "user_id": "U1013", "amount": 450.00, "status": "PENDING", "timestamp": "2024-12-05T11:30:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12358", "user_id": "U1014", "amount": 600.25, "status": "SUCCESS", "timestamp": "2024-12-05T11:35:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12359", "user_id": "U1015", "amount": 75.00, "status": "FAILED", "timestamp": "2024-12-05T11:40:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12360", "user_id": "U1016", "amount": 220.80, "status": "SUCCESS", "timestamp": "2024-12-05T11:45:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12361", "user_id": "U1017", "amount": 315.20, "status": "PENDING", "timestamp": "2024-12-05T11:50:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12362", "user_id": "U1018", "amount": 50.00, "status": "SUCCESS", "timestamp": "2024-12-05T11:55:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+    echo '{"transaction_id": "TX12363", "user_id": "U1019", "amount": 125.75, "status": "FAILED", "timestamp": "2024-12-05T12:00:00Z"}' | /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-producer.sh --topic input-topic --bootstrap-server localhost:9092
+
+
+    9.Consume a Message
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-console-consumer.sh \
+      --topic input-topic \
+      --from-beginning \
+      --bootstrap-server localhost:9092
+
+    10. Delete Kafka Topic Process
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-topics.sh --delete \
+      --topic test-topic \
+      --bootstrap-server localhost:9092
+
+    Metadata Cleanup:
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-server-stop.sh
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-server-start.sh /Users/drupa/Downloads/kafka_2.12-3.8.0/config/server.properties
+
+    Force Metadata Refresh (Optional)
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-topics.sh --create --topic test-topic --bootstrap-server localhost:9092
+    /Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-topics.sh --delete --topic test-topic --bootstrap-server localhost:9092
+
+
+
+
+
+
+
+
+
+
+
+
+1.	Start Kafka: If you haven’t already started Kafka, use this command:
+/Users/drupa/Downloads/kafka_2.12-3.8.0/bin/kafka-server-start.sh \
+  /Users/drupa/Downloads/kafka_2.12-3.8.0/config/server.properties
+
+2.	Verify if Kafka is running: Once started, re-run the command:
+kafka-broker-api-versions.sh --bootstrap-server localhost:9092
+
+3.	List all topics:
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+4.	Describe a specific topic (replace your_topic_name with the actual topic name):
+kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic your_topic_name
+
+5.	Consume messages from a topic (to check for data):
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic your_topic_name --from-beginning
+
+
