@@ -1,0 +1,77 @@
+{
+  "artifacts": {
+    "enriched": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/output/enriched",
+    "figures": [
+      "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures/throughput_over_time.png",
+      "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures/windowed_fraud_rate.png",
+      "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures/status_breakdown.png",
+      "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures/value_by_category.png",
+      "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures/discount_effect.png",
+      "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures/fraud_by_channel.png"
+    ],
+    "metrics": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/metrics.json",
+    "report": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/pipeline_report.md",
+    "windowed": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/output/windowed"
+  },
+  "config": {
+    "batch_size": 250,
+    "discount_rules": {
+      "dining": 0.1,
+      "electronics": 0.08,
+      "entertainment": 0.06,
+      "fuel": 0.0,
+      "grocery": 0.03,
+      "luxury": 0.04,
+      "pharmacy": 0.02,
+      "travel": 0.05
+    },
+    "fraud_alert_rate": 0.08,
+    "fraud_threshold": 0.65,
+    "high_value_amount": 450.0,
+    "kafka_bootstrap": "localhost:9092",
+    "kafka_topic": "transactions",
+    "n_events": 5000,
+    "n_users": 800,
+    "paths": {
+      "checkpoint_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/checkpoints",
+      "data_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/data",
+      "enriched_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/output/enriched",
+      "figures_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports/figures",
+      "full_data_path": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/data/transactions_full.parquet",
+      "output_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/output",
+      "reports_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/reports",
+      "root_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor",
+      "stream_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/data/stream",
+      "windowed_dir": "/private/tmp/claude-501/-Users-drupa-Anything-claude/e6a7aae6-41ec-4c0f-83b9-ef4c205e4839/scratchpad/spark-kafka-transaction-processor/output/windowed"
+    },
+    "seed": 42,
+    "source": "file",
+    "watermark_delay": "30 minutes",
+    "window_duration": "5 minutes"
+  },
+  "generated_events": 5000,
+  "stats": {
+    "discount_value": 28182.001099999936,
+    "enriched_events": 4394,
+    "enriched_query_id": "cea709ce-1939-4c77-bf93-9dd0dff65573",
+    "filtered_count": 606,
+    "filtered_pct": 0.1212,
+    "flagged_count": 102,
+    "flagged_rate": 0.02321347291761493,
+    "max_event_time": "2026-01-15T11:59:57",
+    "max_window_fraud_rate": 0.06140350877192982,
+    "min_event_time": "2026-01-15T09:00:05",
+    "pipeline_duration_seconds": 41.527,
+    "source_events": 5000,
+    "status_counts": {
+      "FAILED": 403,
+      "PENDING": 203,
+      "SUCCESS": 4394
+    },
+    "total_gross_value": 520395.82999999996,
+    "total_net_value": 492213.8289,
+    "window_count": 29,
+    "windowed_query_id": "65717a76-6544-463a-9b72-11e01cc4a68c"
+  },
+  "total_duration_seconds": 51.649
+}

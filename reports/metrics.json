@@ -1,0 +1,27 @@
+{
+  "discount_value": 28182.001100000052,
+  "events_enriched": 4394,
+  "events_filtered": 606,
+  "events_generated": 5000,
+  "filtered_pct": 0.1212,
+  "flagged_count": 102,
+  "flagged_rate": 0.02321347291761493,
+  "fraud_alert_rate": 0.08,
+  "fraud_threshold": 0.65,
+  "max_event_time": "2026-01-15T11:59:57",
+  "max_window_fraud_rate": 0.06140350877192982,
+  "min_event_time": "2026-01-15T09:00:05",
+  "pipeline_duration_seconds": 41.527,
+  "source": "file",
+  "status_counts": {
+    "FAILED": 403,
+    "PENDING": 203,
+    "SUCCESS": 4394
+  },
+  "throughput_events_per_second": 105.81067739061334,
+  "total_gross_value": 520395.83,
+  "total_net_value": 492213.82889999996,
+  "watermark_delay": "30 minutes",
+  "window_duration": "5 minutes",
+  "windows": 29
+}
